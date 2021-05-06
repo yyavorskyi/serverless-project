@@ -22,6 +22,32 @@ plugins:
   - serverless-export-env
 
 functions:
+  get-index:
+    handler: functions/get-index.handler
+    events:
+      - http:
+          path: /
+          method: get
+    environment:
+      restaurants_api:
+        Fn::Join:
+          - ""
+          - - https://
+            - !Ref ApiGatewayRestApi
+            - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}/restaurants
+      cognito_user_pool_id: !Ref CognitoUserPool
+      cognito_client_id: !Ref WebCognitoUserPoolClient
+
+  get-restaurants:
+    handler: functions/get-restaurants.handler
+    events:
+      - http:
+          path: /restaurants
+          method: get
+          authorizer: aws_iam
+    environment:
+      restaurants_table: !Ref RestaurantsTable
+
   search-restaurants:
     handler: functions/search-restaurants.handler
     events:
@@ -34,32 +60,6 @@ functions:
             arn: !GetAtt CognitoUserPool.Arn
     environment:
       restaurants_table: !Ref RestaurantsTable
-  get-index:
-    handler: functions/get-index.handler
-    events:
-      - http:
-          path: /
-          method: get
-    environment:
-      restaurants_api: !Sub https://${ApiGatewayRestApi}.execute-api.${AWS::Region}.amazonaws.com/${self:provider.stage}/restaurants
-      cognito_user_pool_id: !Ref CognitoUserPool
-      cognito_client_id: !Ref WebCognitoUserPoolClient
-
-  get-restaurants:
-    handler: functions/get-restaurants.handler
-    events:
-      - http:
-          path: /restaurants
-          method: get
-    environment:
-      restaurants_api:
-        Fn::Join:
-          - ''
-          - - https://
-            - !Ref ApiGatewayRestApi
-            - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}/restaurants
-        cognito_user_pool_id: !Ref CognitoUserPool
-        cognito_client_id: !Ref WebCognitoUserPoolClient
 
 resources:
   Resources:
