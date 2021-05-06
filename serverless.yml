@@ -51,6 +51,7 @@ functions:
       - http:
           path: /restaurants
           method: get
+          authorizer: aws_iam
     environment:
       restaurants_api:
         Fn::Join:
