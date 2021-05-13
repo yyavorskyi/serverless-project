@@ -251,7 +251,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620902877048-2021-05-13T10:47:57.048Z/production-ready-serverless-workshop.zip"
+          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
         },
         "Handler": "functions/get-index.handler",
         "Runtime": "nodejs12.x",
@@ -312,7 +312,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620902877048-2021-05-13T10:47:57.048Z/production-ready-serverless-workshop.zip"
+          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
         },
         "Handler": "functions/get-restaurants.handler",
         "Runtime": "nodejs12.x",
@@ -346,7 +346,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620902877048-2021-05-13T10:47:57.048Z/production-ready-serverless-workshop.zip"
+          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
         },
         "Handler": "functions/search-restaurants.handler",
         "Runtime": "nodejs12.x",
@@ -380,7 +380,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620902877048-2021-05-13T10:47:57.048Z/production-ready-serverless-workshop.zip"
+          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
         },
         "Handler": "functions/place-order.handler",
         "Runtime": "nodejs12.x",
@@ -414,7 +414,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620902877048-2021-05-13T10:47:57.048Z/production-ready-serverless-workshop.zip"
+          "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
         },
         "Handler": "functions/notify-restaurant.handler",
         "Runtime": "nodejs12.x",
@@ -444,54 +444,54 @@
         "NotifyDashrestaurantLogGroup"
       ]
     },
-    "GetDashindexLambdaVersionV4aDrcLm2g1luD0uDLFXia02kGpFlUD7XizeT1jNg": {
+    "GetDashindexLambdaVersionwPRWVizyNvWTkRFFjpXTq0zLG7irQmfT31MnBxUZ8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashindexLambdaFunction"
         },
-        "CodeSha256": "ilGnuFASEhJCsxPGhTy21u+ilBXNj8peLWKozGkYJAo="
+        "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
       }
     },
-    "GetDashrestaurantsLambdaVersionlDQg6TzEletWaqJPF2oUJWyE2RveAAXJWw7lm0RWI": {
+    "GetDashrestaurantsLambdaVersiono44taL8KiEGRDVHy5YlXShwpKZ67giS429pYa3b4c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetDashrestaurantsLambdaFunction"
         },
-        "CodeSha256": "ilGnuFASEhJCsxPGhTy21u+ilBXNj8peLWKozGkYJAo="
+        "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
       }
     },
-    "SearchDashrestaurantsLambdaVersioncenRkETaKUORDAHgCIek3JweMXdMg9A19CEXCcfVdE": {
+    "SearchDashrestaurantsLambdaVersionEdCn8ALrBdrnNaXSCeQHsmNLHXc66ycZqSgq0OnejE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SearchDashrestaurantsLambdaFunction"
         },
-        "CodeSha256": "ilGnuFASEhJCsxPGhTy21u+ilBXNj8peLWKozGkYJAo="
+        "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
       }
     },
-    "PlaceDashorderLambdaVersion10qfgw7BLNXzk3OfyWrgnnyjvvkFMxDpOfY6qWhTWo": {
+    "PlaceDashorderLambdaVersionF5w07LncZ2nVqIOgH5xELkhSiux1FT7KodaOUy3q31Q": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PlaceDashorderLambdaFunction"
         },
-        "CodeSha256": "ilGnuFASEhJCsxPGhTy21u+ilBXNj8peLWKozGkYJAo="
+        "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
       }
     },
-    "NotifyDashrestaurantLambdaVersionFwrQ2H8rdrzgOjfp68gweXPdnhTdyKuoU8YHR8uk8": {
+    "NotifyDashrestaurantLambdaVersion8iN9iZod3G9ypZBD1DlM632OGzlabWH1MLCOMneu0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "NotifyDashrestaurantLambdaFunction"
         },
-        "CodeSha256": "ilGnuFASEhJCsxPGhTy21u+ilBXNj8peLWKozGkYJAo="
+        "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
       }
     },
     "ApiGatewayRestApi": {
@@ -751,7 +751,7 @@
         ]
       }
     },
-    "ApiGatewayDeployment1620902853955": {
+    "ApiGatewayDeployment1620904142260": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1115,7 +1115,7 @@
     "GetDashindexLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashindexLambdaVersionV4aDrcLm2g1luD0uDLFXia02kGpFlUD7XizeT1jNg"
+        "Ref": "GetDashindexLambdaVersionwPRWVizyNvWTkRFFjpXTq0zLG7irQmfT31MnBxUZ8"
       },
       "Export": {
         "Name": "sls-production-ready-serverless-workshop-dev-GetDashindexLambdaFunctionQualifiedArn"
@@ -1124,7 +1124,7 @@
     "GetDashrestaurantsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetDashrestaurantsLambdaVersionlDQg6TzEletWaqJPF2oUJWyE2RveAAXJWw7lm0RWI"
+        "Ref": "GetDashrestaurantsLambdaVersiono44taL8KiEGRDVHy5YlXShwpKZ67giS429pYa3b4c"
       },
       "Export": {
         "Name": "sls-production-ready-serverless-workshop-dev-GetDashrestaurantsLambdaFunctionQualifiedArn"
@@ -1133,7 +1133,7 @@
     "SearchDashrestaurantsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SearchDashrestaurantsLambdaVersioncenRkETaKUORDAHgCIek3JweMXdMg9A19CEXCcfVdE"
+        "Ref": "SearchDashrestaurantsLambdaVersionEdCn8ALrBdrnNaXSCeQHsmNLHXc66ycZqSgq0OnejE"
       },
       "Export": {
         "Name": "sls-production-ready-serverless-workshop-dev-SearchDashrestaurantsLambdaFunctionQualifiedArn"
@@ -1142,7 +1142,7 @@
     "PlaceDashorderLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PlaceDashorderLambdaVersion10qfgw7BLNXzk3OfyWrgnnyjvvkFMxDpOfY6qWhTWo"
+        "Ref": "PlaceDashorderLambdaVersionF5w07LncZ2nVqIOgH5xELkhSiux1FT7KodaOUy3q31Q"
       },
       "Export": {
         "Name": "sls-production-ready-serverless-workshop-dev-PlaceDashorderLambdaFunctionQualifiedArn"
@@ -1151,7 +1151,7 @@
     "NotifyDashrestaurantLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "NotifyDashrestaurantLambdaVersionFwrQ2H8rdrzgOjfp68gweXPdnhTdyKuoU8YHR8uk8"
+        "Ref": "NotifyDashrestaurantLambdaVersion8iN9iZod3G9ypZBD1DlM632OGzlabWH1MLCOMneu0"
       },
       "Export": {
         "Name": "sls-production-ready-serverless-workshop-dev-NotifyDashrestaurantLambdaFunctionQualifiedArn"
