@@ -1,5 +1,9 @@
 service: production-ready-serverless-workshop
 
+package:
+  exclude:
+    - node_modules/**
+
 custom:
   name: mycustomname
 
