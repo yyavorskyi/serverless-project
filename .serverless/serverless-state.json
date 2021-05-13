@@ -292,7 +292,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
+                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620906120215-2021-05-13T11:42:00.215Z/production-ready-serverless-workshop.zip"
               },
               "Handler": "functions/get-index.handler",
               "Runtime": "nodejs12.x",
@@ -353,7 +353,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
+                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620906120215-2021-05-13T11:42:00.215Z/production-ready-serverless-workshop.zip"
               },
               "Handler": "functions/get-restaurants.handler",
               "Runtime": "nodejs12.x",
@@ -387,7 +387,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
+                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620906120215-2021-05-13T11:42:00.215Z/production-ready-serverless-workshop.zip"
               },
               "Handler": "functions/search-restaurants.handler",
               "Runtime": "nodejs12.x",
@@ -421,7 +421,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
+                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620906120215-2021-05-13T11:42:00.215Z/production-ready-serverless-workshop.zip"
               },
               "Handler": "functions/place-order.handler",
               "Runtime": "nodejs12.x",
@@ -455,7 +455,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z/production-ready-serverless-workshop.zip"
+                "S3Key": "serverless/production-ready-serverless-workshop/dev/1620906120215-2021-05-13T11:42:00.215Z/production-ready-serverless-workshop.zip"
               },
               "Handler": "functions/notify-restaurant.handler",
               "Runtime": "nodejs12.x",
@@ -485,54 +485,54 @@
               "NotifyDashrestaurantLogGroup"
             ]
           },
-          "GetDashindexLambdaVersionwPRWVizyNvWTkRFFjpXTq0zLG7irQmfT31MnBxUZ8": {
+          "GetDashindexLambdaVersionukoomXN6LdKgX7xjctS4o7agqdbwmfWFYqqrabcs4Z4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashindexLambdaFunction"
               },
-              "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
+              "CodeSha256": "E9prVvP+2T1H2iWBw0EZ11nmlFCneikFYf61D/bYxAc="
             }
           },
-          "GetDashrestaurantsLambdaVersiono44taL8KiEGRDVHy5YlXShwpKZ67giS429pYa3b4c": {
+          "GetDashrestaurantsLambdaVersioni7ACona2tOfWWukWQodOoBph9UhfoTOOgZHoZ3FxZZY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashrestaurantsLambdaFunction"
               },
-              "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
+              "CodeSha256": "E9prVvP+2T1H2iWBw0EZ11nmlFCneikFYf61D/bYxAc="
             }
           },
-          "SearchDashrestaurantsLambdaVersionEdCn8ALrBdrnNaXSCeQHsmNLHXc66ycZqSgq0OnejE": {
+          "SearchDashrestaurantsLambdaVersionTwCmxA2E8njQptBZyI2SfY1WnmintZATkN3zIuEHNA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SearchDashrestaurantsLambdaFunction"
               },
-              "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
+              "CodeSha256": "E9prVvP+2T1H2iWBw0EZ11nmlFCneikFYf61D/bYxAc="
             }
           },
-          "PlaceDashorderLambdaVersionF5w07LncZ2nVqIOgH5xELkhSiux1FT7KodaOUy3q31Q": {
+          "PlaceDashorderLambdaVersionqBVlc6PBg02Dl2pK0A5ThgGYkQ0EZkUzOx6tLqvhS0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PlaceDashorderLambdaFunction"
               },
-              "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
+              "CodeSha256": "E9prVvP+2T1H2iWBw0EZ11nmlFCneikFYf61D/bYxAc="
             }
           },
-          "NotifyDashrestaurantLambdaVersion8iN9iZod3G9ypZBD1DlM632OGzlabWH1MLCOMneu0": {
+          "NotifyDashrestaurantLambdaVersionG3tNu4bXgreYQUsqOMVass7KYbMLJBGmscjZ9isLjDI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "NotifyDashrestaurantLambdaFunction"
               },
-              "CodeSha256": "hKAEvXjOO9KqVgyuqL2WJlwS1VyS6ulHMB9vNiMgM0c="
+              "CodeSha256": "E9prVvP+2T1H2iWBw0EZ11nmlFCneikFYf61D/bYxAc="
             }
           },
           "ApiGatewayRestApi": {
@@ -792,7 +792,7 @@
               ]
             }
           },
-          "ApiGatewayDeployment1620904142260": {
+          "ApiGatewayDeployment1620906101087": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1142,6 +1142,123 @@
           },
           "RestaurantNotificationTopic": {
             "Type": "AWS::SNS::Topic"
+          },
+          "E2eTestQueue": {
+            "Type": "AWS::SQS::Queue",
+            "Condition": "IsE2eTest",
+            "Properties": {
+              "MessageRetentionPeriod": 60,
+              "VisibilityTimeout": 1
+            }
+          },
+          "E2eTestQueuePolicy": {
+            "Type": "AWS::SQS::QueuePolicy",
+            "Condition": "IsE2eTest",
+            "Properties": {
+              "Queues": [
+                {
+                  "Ref": "E2eTestQueue"
+                }
+              ],
+              "PolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Action": "SQS:SendMessage",
+                    "Resource": {
+                      "Fn::GetAtt": [
+                        "E2eTestQueue",
+                        "Arn"
+                      ]
+                    },
+                    "Condition": {
+                      "ArnEquals": {
+                        "aws:SourceArn": {
+                          "Ref": "RestaurantNotificationTopic"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Action": "SQS:SendMessage",
+                    "Resource": {
+                      "Fn::GetAtt": [
+                        "E2eTestQueue",
+                        "Arn"
+                      ]
+                    },
+                    "Condition": {
+                      "ArnEquals": {
+                        "aws:SourceArn": {
+                          "Fn::GetAtt": [
+                            "E2eTestEventBridgeRule",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "E2eTestSnsSubscription": {
+            "Type": "AWS::SNS::Subscription",
+            "Condition": "IsE2eTest",
+            "Properties": {
+              "Protocol": "sqs",
+              "Endpoint": {
+                "Fn::GetAtt": [
+                  "E2eTestQueue",
+                  "Arn"
+                ]
+              },
+              "RawMessageDelivery": false,
+              "Region": "us-east-1",
+              "TopicArn": {
+                "Ref": "RestaurantNotificationTopic"
+              }
+            }
+          },
+          "E2eTestEventBridgeRule": {
+            "Type": "AWS::Events::Rule",
+            "Condition": "IsE2eTest",
+            "Properties": {
+              "EventBusName": {
+                "Ref": "EventBus"
+              },
+              "EventPattern": {
+                "source": [
+                  "big-mouth"
+                ]
+              },
+              "State": "ENABLED",
+              "Targets": [
+                {
+                  "Arn": {
+                    "Fn::GetAtt": [
+                      "E2eTestQueue",
+                      "Arn"
+                    ]
+                  },
+                  "Id": "e2eTestQueue",
+                  "InputTransformer": {
+                    "InputPathsMap": {
+                      "source": "$.source",
+                      "detailType": "$.detail-type",
+                      "detail": "$.detail"
+                    },
+                    "InputTemplate": {
+                      "Fn::Sub": "{\n  \"event\": {\n    \"source\": <source>,\n    \"detail-type\": <detailType>,\n    \"detail\": <detail>\n  },\n  \"eventBusName\": \"${EventBus}\"\n}\n"
+                    }
+                  }
+                }
+              ]
+            }
           }
         },
         "Outputs": {
@@ -1156,7 +1273,7 @@
           "GetDashindexLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashindexLambdaVersionwPRWVizyNvWTkRFFjpXTq0zLG7irQmfT31MnBxUZ8"
+              "Ref": "GetDashindexLambdaVersionukoomXN6LdKgX7xjctS4o7agqdbwmfWFYqqrabcs4Z4"
             },
             "Export": {
               "Name": "sls-production-ready-serverless-workshop-dev-GetDashindexLambdaFunctionQualifiedArn"
@@ -1165,7 +1282,7 @@
           "GetDashrestaurantsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashrestaurantsLambdaVersiono44taL8KiEGRDVHy5YlXShwpKZ67giS429pYa3b4c"
+              "Ref": "GetDashrestaurantsLambdaVersioni7ACona2tOfWWukWQodOoBph9UhfoTOOgZHoZ3FxZZY"
             },
             "Export": {
               "Name": "sls-production-ready-serverless-workshop-dev-GetDashrestaurantsLambdaFunctionQualifiedArn"
@@ -1174,7 +1291,7 @@
           "SearchDashrestaurantsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SearchDashrestaurantsLambdaVersionEdCn8ALrBdrnNaXSCeQHsmNLHXc66ycZqSgq0OnejE"
+              "Ref": "SearchDashrestaurantsLambdaVersionTwCmxA2E8njQptBZyI2SfY1WnmintZATkN3zIuEHNA"
             },
             "Export": {
               "Name": "sls-production-ready-serverless-workshop-dev-SearchDashrestaurantsLambdaFunctionQualifiedArn"
@@ -1183,7 +1300,7 @@
           "PlaceDashorderLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PlaceDashorderLambdaVersionF5w07LncZ2nVqIOgH5xELkhSiux1FT7KodaOUy3q31Q"
+              "Ref": "PlaceDashorderLambdaVersionqBVlc6PBg02Dl2pK0A5ThgGYkQ0EZkUzOx6tLqvhS0"
             },
             "Export": {
               "Name": "sls-production-ready-serverless-workshop-dev-PlaceDashorderLambdaFunctionQualifiedArn"
@@ -1192,7 +1309,7 @@
           "NotifyDashrestaurantLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "NotifyDashrestaurantLambdaVersion8iN9iZod3G9ypZBD1DlM632OGzlabWH1MLCOMneu0"
+              "Ref": "NotifyDashrestaurantLambdaVersionG3tNu4bXgreYQUsqOMVass7KYbMLJBGmscjZ9isLjDI"
             },
             "Export": {
               "Name": "sls-production-ready-serverless-workshop-dev-NotifyDashrestaurantLambdaFunctionQualifiedArn"
@@ -1283,6 +1400,20 @@
             "Value": {
               "Ref": "RestaurantNotificationTopic"
             }
+          },
+          "E2eTestQueueUrl": {
+            "Condition": "IsE2eTest",
+            "Value": {
+              "Ref": "E2eTestQueue"
+            }
+          }
+        },
+        "Conditions": {
+          "IsE2eTest": {
+            "Fn::Equals": [
+              "dev",
+              "dev"
+            ]
           }
         }
       },
@@ -1409,7 +1540,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashindexLambdaVersionwPRWVizyNvWTkRFFjpXTq0zLG7irQmfT31MnBxUZ8"
+        "versionLogicalId": "GetDashindexLambdaVersionukoomXN6LdKgX7xjctS4o7agqdbwmfWFYqqrabcs4Z4"
       },
       "get-restaurants": {
         "handler": "functions/get-restaurants.handler",
@@ -1438,7 +1569,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetDashrestaurantsLambdaVersiono44taL8KiEGRDVHy5YlXShwpKZ67giS429pYa3b4c"
+        "versionLogicalId": "GetDashrestaurantsLambdaVersioni7ACona2tOfWWukWQodOoBph9UhfoTOOgZHoZ3FxZZY"
       },
       "search-restaurants": {
         "handler": "functions/search-restaurants.handler",
@@ -1476,7 +1607,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "SearchDashrestaurantsLambdaVersionEdCn8ALrBdrnNaXSCeQHsmNLHXc66ycZqSgq0OnejE"
+        "versionLogicalId": "SearchDashrestaurantsLambdaVersionTwCmxA2E8njQptBZyI2SfY1WnmintZATkN3zIuEHNA"
       },
       "place-order": {
         "handler": "functions/place-order.handler",
@@ -1514,7 +1645,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "PlaceDashorderLambdaVersionF5w07LncZ2nVqIOgH5xELkhSiux1FT7KodaOUy3q31Q"
+        "versionLogicalId": "PlaceDashorderLambdaVersionqBVlc6PBg02Dl2pK0A5ThgGYkQ0EZkUzOx6tLqvhS0"
       },
       "notify-restaurant": {
         "handler": "functions/notify-restaurant.handler",
@@ -1549,10 +1680,18 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "NotifyDashrestaurantLambdaVersion8iN9iZod3G9ypZBD1DlM632OGzlabWH1MLCOMneu0"
+        "versionLogicalId": "NotifyDashrestaurantLambdaVersionG3tNu4bXgreYQUsqOMVass7KYbMLJBGmscjZ9isLjDI"
       }
     },
     "resources": {
+      "Conditions": {
+        "IsE2eTest": {
+          "Fn::Equals": [
+            "dev",
+            "dev"
+          ]
+        }
+      },
       "Resources": {
         "RestaurantsTable": {
           "Type": "AWS::DynamoDB::Table",
@@ -1679,6 +1818,123 @@
         },
         "RestaurantNotificationTopic": {
           "Type": "AWS::SNS::Topic"
+        },
+        "E2eTestQueue": {
+          "Type": "AWS::SQS::Queue",
+          "Condition": "IsE2eTest",
+          "Properties": {
+            "MessageRetentionPeriod": 60,
+            "VisibilityTimeout": 1
+          }
+        },
+        "E2eTestQueuePolicy": {
+          "Type": "AWS::SQS::QueuePolicy",
+          "Condition": "IsE2eTest",
+          "Properties": {
+            "Queues": [
+              {
+                "Ref": "E2eTestQueue"
+              }
+            ],
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Principal": "*",
+                  "Action": "SQS:SendMessage",
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "E2eTestQueue",
+                      "Arn"
+                    ]
+                  },
+                  "Condition": {
+                    "ArnEquals": {
+                      "aws:SourceArn": {
+                        "Ref": "RestaurantNotificationTopic"
+                      }
+                    }
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Principal": "*",
+                  "Action": "SQS:SendMessage",
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "E2eTestQueue",
+                      "Arn"
+                    ]
+                  },
+                  "Condition": {
+                    "ArnEquals": {
+                      "aws:SourceArn": {
+                        "Fn::GetAtt": [
+                          "E2eTestEventBridgeRule",
+                          "Arn"
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "E2eTestSnsSubscription": {
+          "Type": "AWS::SNS::Subscription",
+          "Condition": "IsE2eTest",
+          "Properties": {
+            "Protocol": "sqs",
+            "Endpoint": {
+              "Fn::GetAtt": [
+                "E2eTestQueue",
+                "Arn"
+              ]
+            },
+            "RawMessageDelivery": false,
+            "Region": "us-east-1",
+            "TopicArn": {
+              "Ref": "RestaurantNotificationTopic"
+            }
+          }
+        },
+        "E2eTestEventBridgeRule": {
+          "Type": "AWS::Events::Rule",
+          "Condition": "IsE2eTest",
+          "Properties": {
+            "EventBusName": {
+              "Ref": "EventBus"
+            },
+            "EventPattern": {
+              "source": [
+                "big-mouth"
+              ]
+            },
+            "State": "ENABLED",
+            "Targets": [
+              {
+                "Arn": {
+                  "Fn::GetAtt": [
+                    "E2eTestQueue",
+                    "Arn"
+                  ]
+                },
+                "Id": "e2eTestQueue",
+                "InputTransformer": {
+                  "InputPathsMap": {
+                    "source": "$.source",
+                    "detailType": "$.detail-type",
+                    "detail": "$.detail"
+                  },
+                  "InputTemplate": {
+                    "Fn::Sub": "{\n  \"event\": {\n    \"source\": <source>,\n    \"detail-type\": <detailType>,\n    \"detail\": <detail>\n  },\n  \"eventBusName\": \"${EventBus}\"\n}\n"
+                  }
+                }
+              }
+            ]
+          }
         }
       },
       "Outputs": {
@@ -1741,6 +1997,12 @@
           "Value": {
             "Ref": "RestaurantNotificationTopic"
           }
+        },
+        "E2eTestQueueUrl": {
+          "Condition": "IsE2eTest",
+          "Value": {
+            "Ref": "E2eTestQueue"
+          }
         }
       }
     },
@@ -1773,7 +2035,7 @@
     "artifact": "C:\\Users\\yyavorskyi\\Documents\\PPR Serverless\\serverless-project\\.serverless\\production-ready-serverless-workshop.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/production-ready-serverless-workshop/dev/1620904164175-2021-05-13T11:09:24.175Z",
+    "artifactDirectoryName": "serverless/production-ready-serverless-workshop/dev/1620906120215-2021-05-13T11:42:00.215Z",
     "artifact": "production-ready-serverless-workshop.zip"
   }
 }
