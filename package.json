@@ -23,6 +23,8 @@
         "serverless-export-env": "^1.4.4"
     },
     "dependencies": {
+        "@middy/core": "^2.2.0",
+        "@middy/ssm": "^2.2.0",
         "aws4": "^1.11.0",
         "axios": "^0.21.1",
         "chance": "^1.1.7",
