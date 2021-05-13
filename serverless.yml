@@ -9,6 +9,9 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
+  environment:
+    serviceName: ${self:service}
+    stage: ${self:provider.stage}
   iamRoleStatements:
     - Effect: Allow
       Action: dynamodb:scan
@@ -16,12 +19,47 @@ provider:
     - Effect: Allow
       Action: execute-api:Invoke
       Resource: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGatewayRestApi}/${self:provider.stage}/GET/restaurants
+    - Effect: Allow
+      Action: ssm:GetParameters*
+      Resource:
+        - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/get-restaurants/config
+        - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/search-restaurants/config
+        - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/search-restaurants/secretString
+    - Effect: Allow
+      Action: kms:Decrypt
+      Resource: ${ssm:/dev/kmsArn}
 
 useDotenv: true
 plugins:
   - serverless-export-env
 
 functions:
+  get-index:
+    handler: functions/get-index.handler
+    events:
+      - http:
+          path: /
+          method: get
+    environment:
+      restaurants_api:
+        Fn::Join:
+          - ""
+          - - https://
+            - !Ref ApiGatewayRestApi
+            - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}/restaurants
+      cognito_user_pool_id: !Ref CognitoUserPool
+      cognito_client_id: !Ref WebCognitoUserPoolClient
+
+  get-restaurants:
+    handler: functions/get-restaurants.handler
+    events:
+      - http:
+          path: /restaurants
+          method: get
+          authorizer: aws_iam
+    environment:
+      restaurants_table: !Ref RestaurantsTable
+
   search-restaurants:
     handler: functions/search-restaurants.handler
     events:
@@ -34,33 +72,6 @@ functions:
             arn: !GetAtt CognitoUserPool.Arn
     environment:
       restaurants_table: !Ref RestaurantsTable
-  get-index:
-    handler: functions/get-index.handler
-    events:
-      - http:
-          path: /
-          method: get
-    environment:
-      restaurants_api: !Sub https://${ApiGatewayRestApi}.execute-api.${AWS::Region}.amazonaws.com/${self:provider.stage}/restaurants
-      cognito_user_pool_id: !Ref CognitoUserPool
-      cognito_client_id: !Ref WebCognitoUserPoolClient
-
-  get-restaurants:
-    handler: functions/get-restaurants.handler
-    events:
-      - http:
-          path: /restaurants
-          method: get
-          authorizer: aws_iam
-    environment:
-      restaurants_api:
-        Fn::Join:
-          - ''
-          - - https://
-            - !Ref ApiGatewayRestApi
-            - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}/restaurants
-        cognito_user_pool_id: !Ref CognitoUserPool
-        cognito_client_id: !Ref WebCognitoUserPoolClient
 
 resources:
   Resources:
@@ -130,6 +141,23 @@ resources:
           - ALLOW_REFRESH_TOKEN_AUTH
         PreventUserExistenceErrors: ENABLED
 
+    ServiceUrlParameter:
+      Type: AWS::SSM::Parameter
+      Properties:
+        Type: String
+        Name: /${self:service}/${self:provider.stage}/serviceUrl
+        Value:
+          Fn::Join:
+            - ""
+            - - https://
+              - !Ref ApiGatewayRestApi
+              - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}
+
+    EventBus:
+      Type: AWS::Events::EventBus
+      Properties:
+        Name: order_events_${self:provider.stage}
+
   Outputs:
     RestApiUrl:
       Value:
@@ -153,3 +181,6 @@ resources:
 
     CognitoUserPoolServerClientId:
       Value: !Ref ServerCognitoUserPoolClient
+
+    EventBusName:
+      Value: !Ref EventBus
