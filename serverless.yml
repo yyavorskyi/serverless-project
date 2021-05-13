@@ -14,32 +14,11 @@ provider:
   environment:
     serviceName: ${self:service}
     stage: ${self:provider.stage}
-  iamRoleStatements:
-    - Effect: Allow
-      Action: dynamodb:scan
-      Resource: !GetAtt RestaurantsTable.Arn
-    - Effect: Allow
-      Action: execute-api:Invoke
-      Resource: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGatewayRestApi}/${self:provider.stage}/GET/restaurants
-    - Effect: Allow
-      Action: ssm:GetParameters*
-      Resource:
-        - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/get-restaurants/config
-        - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/search-restaurants/config
-        - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/search-restaurants/secretString
-    - Effect: Allow
-      Action: kms:Decrypt
-      Resource: ${ssm:/dev/kmsArn}
-    - Effect: Allow
-      Action: events:PutEvents
-      Resource: !GetAtt EventBus.Arn
-    - Effect: Allow
-      Action: sns:Publish
-      Resource: !Ref RestaurantNotificationTopic
-
+  
 useDotenv: true
 plugins:
   - serverless-export-env
+  - serverless-iam-roles-per-function
 
 functions:
   get-index:
@@ -63,6 +42,11 @@ functions:
           - - https://
             - !Ref ApiGatewayRestApi
             - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}/orders
+    iamRoleStatementsName: my-custom-role-name-for-get-index
+    iamRoleStatements:
+      - Effect: Allow
+        Action: execute-api:Invoke
+        Resource: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGatewayRestApi}/${self:provider.stage}/GET/restaurants
 
   get-restaurants:
     handler: functions/get-restaurants.handler
@@ -73,6 +57,14 @@ functions:
           authorizer: aws_iam
     environment:
       restaurants_table: !Ref RestaurantsTable
+    iamRoleStatementsName: my-custom-role-name-for-get-restaurants
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamodb:scan
+        Resource: !GetAtt RestaurantsTable.Arn
+      - Effect: Allow
+        Action: ssm:GetParameters*
+        Resource: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/get-restaurants/config
 
   search-restaurants:
     handler: functions/search-restaurants.handler
@@ -86,6 +78,19 @@ functions:
             arn: !GetAtt CognitoUserPool.Arn
     environment:
       restaurants_table: !Ref RestaurantsTable
+    iamRoleStatementsName: my-custom-role-name-for-search-restaurants
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamodb:scan
+        Resource: !GetAtt RestaurantsTable.Arn
+      - Effect: Allow
+        Action: ssm:GetParameters*
+        Resource:
+          - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/search-restaurants/config
+          - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:provider.stage}/search-restaurants/secretString
+      - Effect: Allow
+        Action: kms:Decrypt
+        Resource: ${ssm:/dev/kmsArn}
 
   place-order:
     handler: functions/place-order.handler
@@ -99,6 +104,11 @@ functions:
             arn: !GetAtt CognitoUserPool.Arn
     environment:
       bus_name: !Ref EventBus
+    iamRoleStatementsName: my-custom-role-name-for-place-order
+    iamRoleStatements:
+      - Effect: Allow
+        Action: events:PutEvents
+        Resource: !GetAtt EventBus.Arn
 
   notify-restaurant:
     handler: functions/notify-restaurant.handler
@@ -113,6 +123,14 @@ functions:
     environment:
       bus_name: !Ref EventBus
       restaurant_notification_topic: !Ref RestaurantNotificationTopic
+    iamRoleStatementsName: my-custom-role-name-for-notify-restaurant
+    iamRoleStatements:
+      - Effect: Allow
+        Action: events:PutEvents
+        Resource: !GetAtt EventBus.Arn
+      - Effect: Allow
+        Action: sns:Publish
+        Resource: !Ref RestaurantNotificationTopic
 
 resources:
   Conditions:
