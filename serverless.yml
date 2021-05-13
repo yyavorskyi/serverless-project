@@ -9,6 +9,8 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
+  eventBridge:
+    useCloudFormation: true
   environment:
     serviceName: ${self:service}
     stage: ${self:provider.stage}
@@ -28,6 +30,12 @@ provider:
     - Effect: Allow
       Action: kms:Decrypt
       Resource: ${ssm:/dev/kmsArn}
+    - Effect: Allow
+      Action: events:PutEvents
+      Resource: !GetAtt EventBus.Arn
+    - Effect: Allow
+      Action: sns:Publish
+      Resource: !Ref RestaurantNotificationTopic
 
 useDotenv: true
 plugins:
@@ -49,6 +57,12 @@ functions:
             - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}/restaurants
       cognito_user_pool_id: !Ref CognitoUserPool
       cognito_client_id: !Ref WebCognitoUserPoolClient
+      orders_api:
+        Fn::Join:
+          - ""
+          - - https://
+            - !Ref ApiGatewayRestApi
+            - .execute-api.${self:provider.region}.amazonaws.com/${self:provider.stage}/orders
 
   get-restaurants:
     handler: functions/get-restaurants.handler
@@ -73,6 +87,33 @@ functions:
     environment:
       restaurants_table: !Ref RestaurantsTable
 
+  place-order:
+    handler: functions/place-order.handler
+    events:
+      - http:
+          path: /orders
+          method: post
+          authorizer:
+            name: CognitoAuthorizer
+            type: COGNITO_USER_POOLS
+            arn: !GetAtt CognitoUserPool.Arn
+    environment:
+      bus_name: !Ref EventBus
+
+  notify-restaurant:
+    handler: functions/notify-restaurant.handler
+    events:
+      - eventBridge:
+          eventBus: !Ref EventBus
+          pattern:
+            source:
+              - big-mouth
+            detail-type:
+              - order_placed
+    environment:
+      bus_name: !Ref EventBus
+      restaurant_notification_topic: !Ref RestaurantNotificationTopic
+
 resources:
   Resources:
     RestaurantsTable:
@@ -85,6 +126,7 @@ resources:
         KeySchema:
           - AttributeName: name
             KeyType: HASH
+
     CognitoUserPool:
       Type: AWS::Cognito::UserPool
       Properties:
@@ -158,6 +200,9 @@ resources:
       Properties:
         Name: order_events_${self:provider.stage}
 
+    RestaurantNotificationTopic:
+      Type: AWS::SNS::Topic
+
   Outputs:
     RestApiUrl:
       Value:
@@ -184,3 +229,9 @@ resources:
 
     EventBusName:
       Value: !Ref EventBus
+
+    RestaurantNotificationTopicName:
+      Value: !GetAtt RestaurantNotificationTopic.TopicName
+
+    RestaurantNotificationTopicArn:
+      Value: !Ref RestaurantNotificationTopic
